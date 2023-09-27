@@ -9,11 +9,6 @@ def bank(a, years):
         a *= 1.1
         print(i + 1, "год - %.3f" % a)
     return a
-    # i = 0
-    # while i < years:
-    #     a *= 1.1
-    #     i += 1
-    #     print(i, "год - %.3f" % a)
 
 
 print("Счёт = %.2f" % bank(float(input("Вклад = ")), int(input("Срок = "))))
