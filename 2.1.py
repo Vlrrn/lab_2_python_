@@ -4,6 +4,16 @@
 # Эти деньги прибавляются к сумме вклада, и на них в следующем году тоже будут проценты)
 # Написать функцию bank, принимающая аргументы a и years, и
 # возвращающую сумму, которая будет на счету пользователя
+def check(s):
+    while True:
+        try:
+            c = int(input(s))
+        except ValueError:
+            print("Введите целое число!")
+        else:
+            return c
+
+
 def bank(a, years):
     for i in range(0, years):
         a *= 1.1
@@ -11,5 +21,7 @@ def bank(a, years):
     return a
 
 
-print("Счёт = %.2f" % bank(float(input("Вклад = ")), int(input("Срок = "))))
-
+print("Задание 1\n")
+a = check("Вклад = ")
+years = check("Срок = ")
+print("\nСчёт = %.2f" % bank(a, years))
