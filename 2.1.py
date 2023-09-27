@@ -17,7 +17,5 @@ def bank(a, years):
     # return a
 
 
-a = float(input("Вклад = "))
-years = int(input("Срок = "))
-print("Счёт = %.2f" % bank(a, years))
+print("Счёт = %.2f" % bank(float(input("Вклад = ")), int(input("Срок = "))))
 
