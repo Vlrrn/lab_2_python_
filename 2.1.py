@@ -14,7 +14,6 @@ def bank(a, years):
     #     a *= 1.1
     #     i += 1
     #     print(i, "год - %.3f" % a)
-    # return a
 
 
 print("Счёт = %.2f" % bank(float(input("Вклад = ")), int(input("Срок = "))))
