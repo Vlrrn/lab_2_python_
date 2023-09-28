@@ -7,6 +7,9 @@ def check(s):
     while True:
         try:
             mn = int(input(s))
+            if mn <= 0:
+                print("!?")
+                continue
         except ValueError:
             print("Введите целое число!")
         else:
@@ -31,7 +34,7 @@ for i in range(m):
     matrix.append([])
     for j in range(n):
         matrix[i].append(randint(0, 10))
-        print(matrix[i][j], end=' ')
+        print(matrix[i][j], end='\t')
     print()
 print()
 n_sum(matrix)
