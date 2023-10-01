@@ -7,9 +7,6 @@
 #       Максимальный и минимальный элемент поменять местами.
 # Сделать проверку со всеми этими случаями
 
-# ------------------------------------
-#            max/min
-# ------------------------------------
 def check_e(s):
     while True:
         try:
@@ -90,6 +87,18 @@ def function(arg):
             print("0 elements")
         else:
             print("Nothing to do")
+        min_el = max_el = arg[0]
+        min_el_i = max_el_i = arg.index(min_el)
+        for i in arg:
+            if i < min_el:
+                min_el = i
+                min_el_i = arg.index(min_el)
+            if i > max_el:
+                max_el = i
+                max_el_i = arg.index(max_el)
+        arg[min_el_i] = max_el
+        arg[max_el_i] = min_el
+        print(arg)
 
 
 while True:
