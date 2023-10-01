@@ -8,16 +8,15 @@
 # Сделать проверку со всеми этими случаями
 
 # ------------------------------------
-#            :/ список
+#            max/min
 # ------------------------------------
-def check(s):
+def check_e(s):
     while True:
         try:
-            ii = int(input(s))
+            el = int(input(s))
+            return el
         except ValueError:
             print("Введите целое число!")
-        else:
-            return ii
 
 
 def check_k(s):
@@ -27,30 +26,27 @@ def check_k(s):
             if k_e <= 0:
                 print("!?")
                 continue
+            return k_e
         except ValueError:
             print("Введите целое число!")
-        else:
-            return k_e
 
 
 def check_i(s):
     while True:
         try:
             c = int(input(s))
+            return c
         except ValueError:
             print("Введите целое число!")
-        else:
-            return c
 
 
 def check_f(s):
     while True:
         try:
             c = float(input(s))
+            return c
         except ValueError:
             print("Введите число!")
-        else:
-            return c
 
 
 def function(arg):
@@ -67,26 +63,24 @@ def function(arg):
         str_f = str_f.replace('-', '')
         str_f = str_f.replace('.', '')
         print(str_f)
-        for i in str_f:
-            summa += int(i)
+        for i_f in str_f:
+            summa += int(i_f)
         print(summa)
     elif type(arg) == set:
         print("set")
         summ = 0
-        for i in arg:
-            summ += i
+        for i_set in arg:
+            summ += i_set
         print(summ)
     elif type(arg) == list:
         print("list")
-        first_min = -1
-        second_min = -1
+        first_min = second_min = -1
         for i in range(0, len(arg)):
             if arg[i] < 0:
                 if first_min == -1:
                     first_min = i
-                else:
-                    if second_min == -1:
-                        second_min = i
+                elif second_min == -1:
+                    second_min = i
         if second_min >= 0 and first_min >= 0 and first_min != second_min - 1:
             s = 1
             for i in range(first_min + 1, second_min):
@@ -96,18 +90,9 @@ def function(arg):
             print("0 elements")
         else:
             print("Nothing to do")
-# a = input("In ")
-# print(a, " ", type(a))
+
+
 while True:
-    # a = "str"
-    # function(a)
-    # a = 2.3
-    # function(a)
-    # a = {1, 2}
-    # function(a)
-    # a = [1, 4, -5]
-    # function(a)
-    # break
     print()
     print("Что вы хотите ввести?\n" +
           "***********************\n" +
@@ -126,7 +111,10 @@ while True:
     print()
     if v == 1:
         st = input("str ")
-        function(st)
+        import re
+        new_st = re.sub("[^A-Za-z ]", "", st)
+        print(new_st)
+        function(new_st)
     elif v == 2:
         print()
         f = check_f("float ")
@@ -137,14 +125,14 @@ while True:
             mn = set()
             i = 1
             while k > len(mn):
-                mn.add(check("Введите %.f элемент: " % i))
+                mn.add(check_e("Введите %.f элемент: " % i))
                 i += 1
             function(mn)
         else:
             l = []
             i = 1
             while k > len(l):
-                l.append(check("Введите %.f элемент: " % i))
+                l.append(check_e("Введите %.f элемент: " % i))
                 i += 1
             function(l)
     elif v == 0:
