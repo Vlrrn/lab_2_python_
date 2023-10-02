@@ -37,13 +37,13 @@ def check_i(s):
             print("Введите целое число!")
 
 
-def check_f(s):
+def check_int(s):
     while True:
         try:
-            c = float(input(s))
+            c = int(input(s))
             return c
         except ValueError:
-            print("Введите число!")
+            print("Введите целое число!")
 
 
 def function(arg):
@@ -51,17 +51,22 @@ def function(arg):
     if type(arg) == str:
         print("str")
         arg = arg.split()
-        a = max(arg, key=len)
-        print(a)
-        print(len(a))
-    elif type(arg) == float:
+        if len(arg) > 0:
+            a = max(arg, key=len)
+            print(a)
+            print(len(a))
+        else:
+            print("Не найдено слов")
+    elif type(arg) == int:
+        print("int")
         summa = 0
-        str_f = str(arg)
-        str_f = str_f.replace('-', '')
-        str_f = str_f.replace('.', '')
-        print(str_f)
-        for i_f in str_f:
-            summa += int(i_f)
+        str_i = str(arg)
+        print(str_i)
+        str_i = str_i.replace('-', '')
+        print(str_i)
+        for i in str_i:
+            if '0' <= i <= "9":
+                summa += int(i)
         print(summa)
     elif type(arg) == set:
         print("set")
@@ -119,14 +124,15 @@ while True:
             break
     print()
     if v == 1:
-        st = input("str ")
+        st = input("""Введите строку, состоящую из слов 
+                    (другие символы будут удалены): """)
         import re
         new_st = re.sub("[^A-Za-z ]", "", st)
         print(new_st)
         function(new_st)
     elif v == 2:
         print()
-        f = check_f("float ")
+        f = check_int("int ")
         function(f)
     elif v == 3 or v == 4:
         k = check_k("Количество элементов = ")
