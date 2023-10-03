@@ -70,9 +70,6 @@ def function(arg):
             for i in range(first_min + 1, second_min):
                 s *= arg[i]
             print(s)
-            # ======
-            #  вывод
-            # ======
         elif first_min == second_min - 1:
             print("Отрицательные элементы находятся рядом.")
         else:
@@ -119,7 +116,6 @@ while True:
 (другие символы будут удалены)
 - """)
         import re
-
         new_st = re.sub("[^A-Za-z ]", "", st)
         print("\nСтрока преобразована:\n" +
               "-", new_st)
@@ -152,12 +148,8 @@ while True:
             mn = set()
             i = 1
             while k > len(mn):
-                old = len(mn)
                 mn.add(check_int("Введите %.f элемент: " % i))
-                if old != len(mn):
-                    i += 1
-                else:
-                    print("Данный элемент уже был введен")
+                i += 1
             function(mn)
         else:
             l = []
