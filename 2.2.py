@@ -17,6 +17,9 @@ def check_k(s):
             if k_e <= 0:
                 print("\033[1m\033[31m{}\033[0m".format("\nКоличество должно быть положительным!"))
                 continue
+            if k_e > 100:
+                print("\033[1m\033[31m{}\033[0m".format("\nСлишком большое количество..."))
+                continue
             return k_e
         except ValueError:
             print("\033[1m\033[31m{}\033[0m".format("\nВведите целое положительное число!"))
@@ -28,7 +31,7 @@ def check_int(s):
             c = int(input(s))
             return c
         except ValueError:
-            print("\033[1m\033[31m{}\033[0m".format("\nВведите целое число!"))
+            print("\033[1m\033[31m{}\033[0m".format("\nВведите целое число!\n"))
 
 
 def function(arg):
@@ -130,8 +133,8 @@ while True:
 =======================================
         ВЫ ВЫБРАЛИ ВВОД ЧИСЛА
 =======================================""")
-        f = check_int("""
-Введите число.
+        f = check_int(
+"""Введите число.
 (может быть <0)
 - """)
         function(f)
@@ -157,7 +160,7 @@ while True:
                 if old != len(mn):
                     i += 1
                 else:
-                    print("Данный элемент уже был введен")
+                    print("\033[1m\033[31m{}\033[0m".format("Данный элемент уже был введен!"))
             function(mn)
         else:
             l = []
